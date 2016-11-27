@@ -16,7 +16,7 @@ public class BalancedParenthesis {
         brackets.put('{', '}');
         brackets.put('(',')');
     }
-    private BalancedParenthesis() {};
+    private BalancedParenthesis() {}
     public static Boolean isBalanced(String str)
     {
         if(str.length() == 0)
@@ -24,13 +24,13 @@ public class BalancedParenthesis {
             throw new IllegalArgumentException("Please provide a string");
         }
 
-        final Stack<Character> stack = new Stack<Character>();
+        final Stack<Character> s = new Stack<Character>();
         for(int i = 0; i < str.length(); i++)
         {
             if(brackets.containsKey(str.charAt(i)))
             {
-                stack.push(str.charAt(i));
-            } else if(stack.empty() || str.charAt(i) != brackets.get(stack.pop()))
+                s.push(str.charAt(i));
+            } else if(s.empty() || str.charAt(i) != brackets.get(s.pop()))
             {
                 return false;
             }
